@@ -3,8 +3,15 @@
 ### Let's get start
 
 ```zsh
+    npm install
     npm run build
     npm run serve
+
+    # launch url
+    ## mac
+    open http://localhost:8888
+    ## windows
+    start http://localhost:8888
 ```
 
 ### loader
