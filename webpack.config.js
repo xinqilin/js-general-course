@@ -1,11 +1,11 @@
 const path = require('path')
-const htmlPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ImageminPlugin =  require('imagemin-webpack-plugin').default
+const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 module.exports = {
     entry: {
-        main: "./src/libs/component.js",
+        main: "./src/index.js",
         // error: "./src/libs/error.js"
     },
     output: {
@@ -22,7 +22,18 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg)$/,
                 use: ['file-loader']
-            }
+            },
+            {
+                // babel-loader
+                test: /\.m?js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                    },
+                },
+            },
         ]
     },
     optimization: {
@@ -43,8 +54,9 @@ module.exports = {
         port: 8888
     },
     plugins: [
-        new htmlPlugin({
-            title: "Webpack App"
+        new HtmlWebpackPlugin({
+            title: "Webpack App With Ramen",
+            template: "./src/index.html"
         }),
         new MiniCssExtractPlugin(),
         new ImageminPlugin({

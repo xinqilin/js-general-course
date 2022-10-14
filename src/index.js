@@ -1,5 +1,7 @@
 import "./main.css"
-import { hello, ramen } from './libs/component.js'
+import {appendCool, appendDate, appendHello, appendPic} from './libs/component.js'
 
-document.body.appendChild(hello())
-document.body.appendChild(ramen())
+const body = document.body
+
+appendHello(body)
+appendCool(body)
