@@ -1,15 +1,15 @@
 const path = require('path')
 const htmlPlugin = require('html-webpack-plugin')
-const {cleanPlugin} = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ImageminPlugin =  require('imagemin-webpack-plugin').default
 
 module.exports = {
     entry: {
-        main: "./src/index.js",
-        error: "./src/libs/error.js"
+        main: "./src/libs/component.js",
+        // error: "./src/libs/error.js"
     },
     output: {
-        filename: ["main", "error"],
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, "dist"),
         clean: true
     },
@@ -20,7 +20,7 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
             },
             {
-                test: /\.(png|svg)/,
+                test: /\.(png|svg|jpg)$/,
                 use: ['file-loader']
             }
         ]
@@ -40,13 +40,16 @@ module.exports = {
         // static:{
         //     directory: path.resolve(__dirname, "dist")
         // },
-        port: 8081
+        port: 8888
     },
     plugins: [
         new htmlPlugin({
             title: "Webpack App"
         }),
         new MiniCssExtractPlugin(),
+        new ImageminPlugin({
+            test: /\.(jpe?g|png|gif|svg)$/i
+        })
     ],
     devtool: 'inline-source-map'
 }

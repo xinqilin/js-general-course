@@ -1,11 +1,8 @@
 {
-  "name": "javascript-modularization",
+  "name": "js-general-course",
   "version": "1.0.0",
-  "description": "",
+  "description": "practice frontend skill",
   "main": "webpack.config.js",
-  "directories": {
-    "example": "examples"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=development",
@@ -16,16 +13,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ItsTiffanyChen/javascript-modularization.git"
+    "url": "git+https://github.com/xinqilin/js-general-course.git"
   },
-  "author": "",
+  "author": "Bill.Lin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ItsTiffanyChen/javascript-modularization/issues"
+    "url": "https://github.com/xinqilin/js-general-course/issues"
   },
-  "homepage": "https://github.com/ItsTiffanyChen/javascript-modularization#readme",
+  "homepage": "https://github.com/xinqilin/js-general-course#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
